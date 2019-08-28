@@ -16,7 +16,8 @@ function grids = partition_small()
     inds = randperm(10);
     
     for k = 1 : 10
-        grids{k} = nominal_patterns{inds(k)}([2 1], :) + [4; 1];
-        grids{10 + k} = nominal_patterns{inds(k)} + [4; 1];
+        num = size(nominal_patterns{inds(k)}, 2);
+        grids{k} = nominal_patterns{inds(k)}([2 1], :) + [4; 1] * ones(1, num);
+        grids{10 + k} = nominal_patterns{inds(k)} + [4; 1] * ones(1, num);
     end
 end
