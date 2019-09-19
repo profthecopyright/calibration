@@ -1,7 +1,7 @@
-function cali_run()
-global cali trial_id
+function cali_run(trial_id)
+global cali 
 
-    if trial_id == 0
+    if trial_id == 0 || trial_id > length(cali.grids)
         return
     end
 
