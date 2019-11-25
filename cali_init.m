@@ -1,5 +1,8 @@
 function cali_init(hwin, hgridfunc, pattern, multiplier, align_mode)
 global cali
+
+    rng('shuffle');
+
     cali.grids =            hgridfunc();
     cali.image_height =     160;
     cali.image_width =      160;
