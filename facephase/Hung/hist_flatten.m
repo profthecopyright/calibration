@@ -4,7 +4,7 @@ TOTAL = 20;
 
 for i = 1
     for j = 1 : TOTAL
-        filename = ['original\' names{i} num2str(j) '.png'];
+        filename = ['500300\' names{i} num2str(j) '.png'];
         disp(filename);
         img = imread(filename);
         hsv = rgb2hsv(img);

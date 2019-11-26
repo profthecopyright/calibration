@@ -3,7 +3,7 @@
 template = imread('hist_equalized\m8.png');
 temp_hsv = rgb2hsv(template);
 value = temp_hsv(:, :, 3);
-temp_intensity = mean(value(:))
+temp_intensity = mean(value(:));
 
 names = {'b'};
 TOTAL = 20;
