@@ -4,11 +4,7 @@ for i = 1 : length(images)
     filename = images(i).name;
     [color, map] = imread(['color\' filename]);
     
-    if isempty(map)
-        bw = rgb2gray(color);
-    else
-        bw = ind2gray(color, map);
-    end
-    
-    imwrite(bw, ['BW\' filename]);
+    bw = rgb2gray(color);
+
+    imwrite(bw, ['BW\' filename(1:end-4) '.tif']);
 end
