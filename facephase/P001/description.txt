@@ -1,0 +1,2 @@
+Try equalization histogram success
+Pixel number not equalized
