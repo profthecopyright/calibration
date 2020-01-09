@@ -6,6 +6,5 @@ for i = 1 : N
     img = imread(['equalized\' filename]);
     
     img(img == 255) = 128;
-    imshow(img);
-    waitforbuttonpress;
+    imwrite(img, ['half\' filename]);
 end
