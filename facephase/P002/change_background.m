@@ -1,9 +1,9 @@
-images = dir('resized_clean\*.tif');
+images = dir('equalized\*.tif');
 N = length(images);
 
-for i = 61 : N
+for i = 1 : N
     filename = images(i).name;
-    img = imread(['resized_clean\' filename]);
+    img = imread(['equalized\' filename]);
     
     img(img == 255) = 128;
     imshow(img);
