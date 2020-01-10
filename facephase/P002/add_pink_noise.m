@@ -1,7 +1,7 @@
 images = dir('equalized\*.tif');
 N = length(images);
 
-beta = -1;
+beta = -2;
 
 for i = 1 : N
     filename = images(i).name;
@@ -9,6 +9,7 @@ for i = 1 : N
     
     [row, col] = size(img);
     noise = spatialPattern([row col], beta);
+    %histogram(noise(:), 'normalization', 'probability');
     bg = uint8((noise - min(noise(:))) / (max(noise(:)) - min(noise(:))) * 255); 
     bg(img~=255) = img(img~=255);
     
