@@ -1,0 +1,5 @@
+canvas: 600 360
+monkey 380 228
+
+resized: 0.8x 480 288
+monkey 306 184
