@@ -1,9 +1,9 @@
-images = dir('equalized\*.tif');
+images = dir('phase_scrambled_equalized\*.tif');
 N = length(images);
 
 for i = 1 : N
     filename = images(i).name;
-    img = imread(['equalized\' filename]);
+    img = imread(['phase_scrambled_equalized\' filename]);
     
     pn = pn_song(1440, 2560);
     noise = pn.image;
@@ -27,5 +27,5 @@ for i = 1 : N
         end
     end
     
-    imwrite(big_bg, ['pink_song_shifthalf\' filename]);
+    imwrite(big_bg, ['phase_scrambled_equalized_shifthalf\' filename]);
 end

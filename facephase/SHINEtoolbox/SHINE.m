@@ -67,8 +67,8 @@ function images = SHINE(images,templ)
 % is called without input or output arguments:
 
 imformat = 'tif';
-input_folder = '..\P002\resized_clean';
-output_folder = '..\P002\equalized';
+input_folder = '..\P002\phase_scrambled_raw';
+output_folder = '..\P002\phase_scrambled_equalized';
 template_folder = '..\P002\equalized';
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % If desired, the default values can be changed here:
