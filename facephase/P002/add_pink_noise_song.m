@@ -1,7 +1,7 @@
 images = dir('equalized\*.tif');
 N = length(images);
 
-beta = -2;
+mean_lum = 118;
 
 for i = 1 : N
     filename = images(i).name;
@@ -10,13 +10,25 @@ for i = 1 : N
     [row, col] = size(img);
     pn = pn_song(row, col);
     noise = pn.image;
-    %histogram(noise(:), 'normalization', 'probability');
-    bg = uint8((noise - min(noise(:))) / (max(noise(:)) - min(noise(:))) * 255); 
+    
+    center = mean(noise(:));
+    lower = min(noise(:));
+    upper = max(noise(:));
+    
+    scale_factor = min(mean_lum / (center - lower), (255 - mean_lum) / (upper - center));
+    bg = uint8((noise - center) * scale_factor + mean_lum);
     bg(img~=255) = img(img~=255);
+    
+    % ===================================================
     
     pn = pn_song(1440, 2560);
     noise = pn.image;
-    big_bg = uint8((noise - min(noise(:))) / (max(noise(:)) - min(noise(:))) * 255); 
+    center = mean(noise(:));
+    lower = min(noise(:));
+    upper = max(noise(:));
+    
+    scale_factor = min(mean_lum / (center - lower), (255 - mean_lum) / (upper - center));
+    big_bg = uint8((noise - center) * scale_factor + mean_lum);
     
     for r = 1 : row
         for c = 1 : col

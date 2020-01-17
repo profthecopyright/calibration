@@ -1,13 +1,18 @@
-images = dir('phase_scrambled_equalized\*.tif');
+images = dir('equalized\*.tif');
 N = length(images);
 
 for i = 1 : N
     filename = images(i).name;
-    img = imread(['phase_scrambled_equalized\' filename]);
+    img = imread(['equalized\' filename]);
     
     pn = pn_song(1440, 2560);
     noise = pn.image;
-    big_bg = uint8((noise - min(noise(:))) / (max(noise(:)) - min(noise(:))) * 255); 
+    center = mean(noise(:));
+    lower = min(noise(:));
+    upper = max(noise(:));
+    
+    scale_factor = min(mean_lum / (center - lower), (255 - mean_lum) / (upper - center));
+    big_bg = uint8((noise - center) * scale_factor + mean_lum); 
     
     img = imresize(img, 0.8); % 288 by 480
     pattern1 = repmat(img, 1, 5);
@@ -27,5 +32,5 @@ for i = 1 : N
         end
     end
     
-    imwrite(big_bg, ['phase_scrambled_equalized_shifthalf\' filename]);
+    imwrite(big_bg, ['pink_song_shifthalf\' filename]);
 end
