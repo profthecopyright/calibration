@@ -7,8 +7,8 @@ for i = 1 : 20
     
     roi = img(52 + 1 : 52 + 184, 88 + 1 : 88 + 304);
     
-    rows = partial_permute([20 * ones(1, 5) 21 * ones(1, 4)]);
-    cols = partial_permute([20 * ones(1, 11) 21 * ones(1, 4)]);
+    rows = partial_permute([12 * ones(1, 11) 13 * ones(1, 4)]);
+    cols = partial_permute([12 * ones(1, 21) 13 * ones(1, 4)]);
     
     roi = roi(rows, :);
     roi = roi(:, cols);

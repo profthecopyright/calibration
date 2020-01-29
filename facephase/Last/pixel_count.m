@@ -1,11 +1,11 @@
-images = dir('480288\*.tif');
+images = dir('480288_equalized\*.tif');
 N = length(images);
 pixel_counts = zeros(N, 1);
 mean_lum = zeros(N, 1);
 
 for i = 1 : N
     filename = images(i).name;
-    img = imread(['480288\' filename]);
+    img = imread(['480288_equalized\' filename]);
     
     pixel_counts(i) = sum(sum(img ~= 255));
     
